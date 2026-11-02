@@ -1,0 +1,6 @@
+[submodule "deckyhub-plugin"]
+	path = deckyhub-plugin
+	url = https://github.com/mazillka/deckyhub-plugin.git
+[submodule "deckyhub-registry"]
+	path = deckyhub-registry
+	url = https://github.com/mazillka/deckyhub-registry.git

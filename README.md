@@ -4,6 +4,8 @@
 
 # DeckyHub
 
+[![Support on Ko-fi](https://img.shields.io/badge/Support_on_Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/mazillka)
+
 **Your Steam Deck's plugin hub, inside Gaming Mode. Every DeckyHub repository in one place.**
 
 [![Release](https://img.shields.io/github/v/release/mazillka/deckyhub-plugin?color=1d75cc)](https://github.com/mazillka/deckyhub-plugin/releases/latest)

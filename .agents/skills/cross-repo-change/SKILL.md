@@ -1,13 +1,15 @@
 ---
 name: cross-repo-change
-description: Plan, order and test a DeckyHub change that touches both deckyhub-plugin and deckyhub-registry - the plugin reading a new apps.json, releases.json or stats.json field, a registry schema or file change, a new audit warning, renaming something both use, or testing the plugin against registry data that isn't published yet. Use whenever one repository's change depends on the other's.
+description: Plan, order and test a DeckyHub change that spans the plugin, registry, or browser extension - the plugin reading a new apps.json, releases.json or stats.json field, a registry schema or file change, a new audit warning, renaming something both use, or testing the plugin against registry data that isn't published yet. Use whenever one repository's change depends on the other's.
 ---
 
-# Changes across the plugin and the registry
+# Changes across DeckyHub repositories
 
 The registry is data every installed DeckyHub reads; the plugin is the reader. A registry change on `main` reaches every install, including old releases nobody updates, on their next restart. A plugin change reaches users only as they update. So the two never ship together: the data comes first and stays compatible with every released plugin.
 
-Before starting, read both `compatibility` skills: `deckyhub-registry/.claude/skills/compatibility/SKILL.md` lists every file the plugin reads, from which branch, and the reader in the plugin's code; `deckyhub-plugin/.claude/skills/compatibility/SKILL.md` covers the plugin's side.
+The extension also consumes registry catalog, audit and scan data; check its `extension/src/background.js` and `extension/src/contentscript.js` when changing those contracts. Account for both readers and their cached or older data when relevant.
+
+For plugin and registry changes, read both `compatibility` skills: `deckyhub-registry/.agents/skills/compatibility/SKILL.md` lists every file the plugin reads, from which branch, and the reader in the plugin's code; `deckyhub-plugin/.agents/skills/compatibility/SKILL.md` covers the plugin's side.
 
 ## Order
 
@@ -44,4 +46,4 @@ To see the plugin on a Deck against registry data that isn't published, use the 
 - In the registry PR, say what an older DeckyHub sees after the change ("nothing different" is the usual answer).
 - In the plugin PR, say which registry PR or release it needs, and that it's already on the registry branch it reads.
 
-Never merge either PR without the user's OK.
+Never merge a PR without the user's OK.

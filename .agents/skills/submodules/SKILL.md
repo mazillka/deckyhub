@@ -1,6 +1,6 @@
 ---
 name: submodules
-description: Manage the deckyhub umbrella repo's git submodules (deckyhub-plugin and deckyhub-registry) - initialize them, bump the pinned commits, work and push inside a submodule, and repair a detached, dirty or missing submodule checkout. Use when cloning this repo, when asked to update, bump or sync the submodules, before committing a submodule pointer, or when `git submodule` reports an error.
+description: Manage the deckyhub umbrella repo's git submodules (plugin, registry and browser extension) - initialize them, bump the pinned commits, work and push inside a submodule, and repair a detached, dirty or missing submodule checkout. Use when cloning this repo, when asked to update, bump or sync the submodules, before committing a submodule pointer, or when `git submodule` reports an error.
 ---
 
 # Submodules
@@ -9,6 +9,7 @@ description: Manage the deckyhub umbrella repo's git submodules (deckyhub-plugin
 | --- | --- | --- |
 | `deckyhub-plugin` | `https://github.com/mazillka/deckyhub-plugin.git` | `main` |
 | `deckyhub-registry` | `https://github.com/mazillka/deckyhub-registry.git` | `main` |
+| `deckyhub-ext` | `https://github.com/mazillka/deckyhub-ext.git` | `main` |
 
 The umbrella records one commit per submodule. `branch = main` in `.gitmodules` only says which branch `git submodule update --remote` follows; the pinned commit is what everyone gets.
 
@@ -21,8 +22,8 @@ git submodule status          # " " pinned, "+" checked out elsewhere, "-" not i
 
 ## Bump the pinned commits
 
-1. Make sure neither submodule has work in progress: `git submodule foreach 'git status --short'` prints nothing. If one does, it's someone's work: ask before touching it.
-2. Move both to the newest `main`:
+1. Make sure each submodule has no work in progress: `git submodule foreach 'git status --short'` prints nothing. Preserve any existing work and do not switch a dirty checkout if doing so would interfere with it.
+2. Move them to the newest `main`:
 
    ```bash
    git submodule update --remote
@@ -34,7 +35,7 @@ git submodule status          # " " pinned, "+" checked out elsewhere, "-" not i
 4. Commit only the pointers:
 
    ```bash
-   git add deckyhub-plugin deckyhub-registry
+   git add deckyhub-plugin deckyhub-registry deckyhub-ext
    git commit -m "chore: bump submodules"
    ```
 
@@ -50,7 +51,7 @@ Prefer commits on `main`. A pointer to `develop` or a topic branch is fine only 
 
 ## Work inside a submodule
 
-A submodule is a full clone of its repository, checked out on a detached `HEAD`. Changes to it are that repository's changes, under its own rules (`AGENTS.md`, `CONTRIBUTING.md`, its `branches` and `compatibility` skills):
+A submodule is a full clone of its repository, usually checked out on a detached `HEAD`. Follow the target repository's own branch and contribution guidance; do not assume every repository has a `develop` branch. Changes to it are that repository's changes, under its own rules (`AGENTS.md`, `CONTRIBUTING.md`, its `branches` and `compatibility` skills):
 
 ```bash
 cd deckyhub-registry
@@ -60,14 +61,14 @@ git switch -c <topic> origin/develop
 git push -u origin <topic>
 ```
 
-Open the PR against that repository's `develop`. The umbrella's pointer doesn't change until the work reaches the submodule's `main`; then bump it as above.
+Open a PR against the target repository's appropriate branch when a PR is requested. The umbrella's pointer doesn't change until the work reaches the submodule's `main`; then bump it as above.
 
 ## Repair
 
 | Symptom | Fix |
 | --- | --- |
-| Empty `deckyhub-plugin/` or `deckyhub-registry/` | `git submodule update --init` |
-| `+` in `git submodule status` after a pull | `git submodule update` checks out the pinned commit, if the submodule has no work of its own (`git -C <path> status`, `git -C <path> log origin/develop..HEAD`) |
+| Empty submodule directory | `git submodule update --init` |
+| `+` in `git submodule status` after a pull | `git submodule update` checks out the pinned commit, if the submodule has no work of its own (`git -C <path> status`, `git -C <path> log --branches --not --remotes`) |
 | `fatal: remote error: upload-pack: not our ref` or `did not contain <sha>` | The pointer names an unpushed or deleted commit. Re-pin to a commit on `main` and commit the fix |
 | URL changed in `.gitmodules` | `git submodule sync --recursive`, then `git submodule update --init` |
 

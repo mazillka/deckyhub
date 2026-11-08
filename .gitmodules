@@ -6,3 +6,7 @@
 	path = deckyhub-registry
 	url = https://github.com/mazillka/deckyhub-registry.git
 	branch = main
+[submodule "deckyhub-ext"]
+	path = deckyhub-ext
+	url = https://github.com/mazillka/deckyhub-ext.git
+	branch = main

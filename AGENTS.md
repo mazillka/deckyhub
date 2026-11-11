@@ -21,6 +21,10 @@ This repository contains umbrella documentation, agent guidance, and submodule p
 - **A change that spans repositories** (the plugin reading a new registry field, a schema change, renaming something both use): the `cross-repo-change` skill. Order matters, because a registry change on `main` reaches every installed DeckyHub at once.
 - **This repository's own docs and skills**: edit them here directly.
 
+## Keep it up to date
+
+Before anything else in a session here, run the `stay-current` skill's check: are the pins at each submodule's `main`, and is the checkout you're about to read the commit you mean? After a submodule pull request merges to its `main`, bump the pin as part of finishing that change.
+
 ## Setup
 
 ```bash

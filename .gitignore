@@ -6,3 +6,6 @@
 !/deckyhub-plugin/
 !/deckyhub-registry/
 !/deckyhub-ext/
+
+# Local test-run output
+/suite.log

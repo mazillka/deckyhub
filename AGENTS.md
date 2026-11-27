@@ -11,7 +11,7 @@ This file provides guidance to coding agents (including Claude Code) working in 
 | `deckyhub-plugin/` | `mazillka/deckyhub-plugin`: the Decky Loader plugin (Python backend `main.py`, React/TypeScript frontend `src/`) | `deckyhub-plugin/AGENTS.md`, `deckyhub-plugin/SKILLS.md`, `deckyhub-plugin/.agents/skills/` |
 | `deckyhub-registry/` | `mazillka/deckyhub-registry`: `registry/apps.json`, the release index and `stats.json`, discovery, the catalog website | `deckyhub-registry/AGENTS.md`, `deckyhub-registry/.agents/skills/` |
 | `deckyhub-ext/` | `mazillka/deckyhub-ext`: browser extension showing registry security information on GitHub | `deckyhub-ext/AGENTS.md`, `deckyhub-ext/.agents/skills/` |
-| `deckyhub-site/` | `mazillka/deckyhub-site`: the website, deckyhub.com. Until the switch-over in its `MIGRATION.md`, the live site is still `deckyhub-plugin/docs/` | `deckyhub-site/README.md` |
+| `deckyhub-site/` | `mazillka/deckyhub-site`: the website, deckyhub.com | `deckyhub-site/README.md` |
 
 This repository contains umbrella documentation, agent guidance, and submodule pointers.
 

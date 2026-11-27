@@ -31,7 +31,7 @@ This is the umbrella repository for [DeckyHub](https://github.com/mazillka/decky
 | [`deckyhub-plugin/`](https://github.com/mazillka/deckyhub-plugin) | `mazillka/deckyhub-plugin` | The Decky Loader plugin: a Python backend (`main.py`) and a React/TypeScript frontend (`src/`), its releases and tests. |
 | [`deckyhub-registry/`](https://github.com/mazillka/deckyhub-registry) | `mazillka/deckyhub-registry` | The plugin list DeckyHub shows on Discover (`registry/apps.json`), the hourly release index and `stats.json`, plugin discovery, and the [catalog website](https://mazillka.github.io/deckyhub-registry/). |
 | [`deckyhub-ext/`](https://github.com/mazillka/deckyhub-ext) | `mazillka/deckyhub-ext` | The browser extension that shows registry audit warnings and scan results on GitHub. |
-| [`deckyhub-site/`](https://github.com/mazillka/deckyhub-site) | `mazillka/deckyhub-site` | The website, deckyhub.com. It's still deployed from the plugin repository until the [switch-over](https://github.com/mazillka/deckyhub-site/blob/main/MIGRATION.md). |
+| [`deckyhub-site/`](https://github.com/mazillka/deckyhub-site) | `mazillka/deckyhub-site` | The website, deckyhub.com. |
 
 How they fit together: DeckyHub downloads the registry's `apps.json` at startup and reads every listed plugin's recent releases from the registry's release index, so it spends no GitHub API calls on listed plugins. A registry change shipped to its `main` reaches every installed DeckyHub on its next restart, with no plugin release needed. That's why changes to what the plugin reads from the registry must keep older plugin releases working. The extension also reads registry security data to show information on GitHub repositories. The details are in each repository's README.
 

@@ -1,4 +1,4 @@
-# Only the three submodules and this repository's own folders belong at the root.
+# Only the submodules and this repository's own folders belong at the root.
 # Anything else there is a scratch worktree of a submodule, which must never be added.
 /*/
 !/.agents/
@@ -6,6 +6,7 @@
 !/deckyhub-plugin/
 !/deckyhub-registry/
 !/deckyhub-ext/
+!/deckyhub-site/
 
 # Local test-run output
 /suite.log

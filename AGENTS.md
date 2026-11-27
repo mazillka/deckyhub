@@ -4,22 +4,23 @@ This file provides guidance to coding agents (including Claude Code) working in 
 
 ## What this is
 
-`mazillka/deckyhub` is an umbrella repository with no code of its own. It pins three DeckyHub repositories as git submodules:
+`mazillka/deckyhub` is an umbrella repository with no code of its own. It pins four DeckyHub repositories as git submodules:
 
 | Path | Repository | Its own guide |
 | --- | --- | --- |
 | `deckyhub-plugin/` | `mazillka/deckyhub-plugin`: the Decky Loader plugin (Python backend `main.py`, React/TypeScript frontend `src/`) | `deckyhub-plugin/AGENTS.md`, `deckyhub-plugin/SKILLS.md`, `deckyhub-plugin/.agents/skills/` |
 | `deckyhub-registry/` | `mazillka/deckyhub-registry`: `registry/apps.json`, the release index and `stats.json`, discovery, the catalog website | `deckyhub-registry/AGENTS.md`, `deckyhub-registry/.agents/skills/` |
 | `deckyhub-ext/` | `mazillka/deckyhub-ext`: browser extension showing registry security information on GitHub | `deckyhub-ext/AGENTS.md`, `deckyhub-ext/.agents/skills/` |
+| `deckyhub-site/` | `mazillka/deckyhub-site`: the website, deckyhub.com | `deckyhub-site/README.md` |
 
 This repository contains umbrella documentation, agent guidance, and submodule pointers.
 
 ## Where a change goes
 
-- **Code, docs, tests, workflows or data inside `deckyhub-plugin/`, `deckyhub-registry/` or `deckyhub-ext/`** belong to that repository. Before editing there, read its guide (table above) and follow its rules: its applicable branch, review, and compatibility guidance. Commit and push from inside the submodule, to that repository. Its rules apply even though you reached it through this repository.
+- **Code, docs, tests, workflows or data inside `deckyhub-plugin/`, `deckyhub-registry/`, `deckyhub-ext/` or `deckyhub-site/`** belong to that repository. Before editing there, read its guide (table above) and follow its rules: its applicable branch, review, and compatibility guidance. Commit and push from inside the submodule, to that repository. Its rules apply even though you reached it through this repository.
 - **Submodule pointers** (which commit each one is pinned to): the `submodules` skill.
 - **A change that spans repositories** (the plugin reading a new registry field, a schema change, renaming something both use): the `cross-repo-change` skill. Order matters, because a registry change on `main` reaches every installed DeckyHub at once.
-- **A change to what users are told** (audit warnings, badges, scan results, how risk facts are shown, what is said when data is missing): make it on all four surfaces in the same effort: the registry's data, the plugin app, the website (`deckyhub-plugin/docs/` and `devtools/plugin_pages.py`) and the extension. If one doesn't apply (a device-only action, say), say so in the pull request. The principle is *informative, never judging*: every fact with its explanation, what's missing said as plainly as what was found, no score, and the user decides ([`deckyhub-plugin/AGENTS.md`](deckyhub-plugin/AGENTS.md)). The existing "Very high risk" wording is a deliberate exception.
+- **A change to what users are told** (audit warnings, badges, scan results, how risk facts are shown, what is said when data is missing): make it on all four surfaces in the same effort: the registry's data, the plugin app, the website (`deckyhub-site/docs/` and `devtools/`) and the extension. If one doesn't apply (a device-only action, say), say so in the pull request. The principle is *informative, never judging*: every fact with its explanation, what's missing said as plainly as what was found, no score, and the user decides ([`deckyhub-plugin/AGENTS.md`](deckyhub-plugin/AGENTS.md)). The existing "Very high risk" wording is a deliberate exception.
 - **This repository's own docs and skills**: edit them here directly.
 
 ## Keep it up to date

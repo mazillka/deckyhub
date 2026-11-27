@@ -10,3 +10,7 @@
 	path = deckyhub-ext
 	url = https://github.com/mazillka/deckyhub-ext.git
 	branch = main
+[submodule "deckyhub-site"]
+	path = deckyhub-site
+	url = https://github.com/mazillka/deckyhub-site.git
+	branch = main

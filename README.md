@@ -13,7 +13,7 @@
 [![Registry validate](https://img.shields.io/github/actions/workflow/status/mazillka/deckyhub-registry/ci.yml?branch=main&label=registry%20validate)](https://github.com/mazillka/deckyhub-registry/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)](LICENSE.md)
 
-[**Download DeckyHub**](https://github.com/mazillka/deckyhub-plugin/releases/latest) · [Website](https://deckyhub.com/) · [Plugin catalog](https://mazillka.github.io/deckyhub-registry/) · [Report an issue](https://github.com/mazillka/deckyhub-plugin/issues)
+[**Download DeckyHub**](https://github.com/mazillka/deckyhub-plugin/releases/latest) · [Website](https://deckyhub.com/) · [Plugin catalog](https://deckyhub.com/plugins/) · [Report an issue](https://github.com/mazillka/deckyhub-plugin/issues)
 
 </div>
 
@@ -29,7 +29,7 @@ This is the umbrella repository for [DeckyHub](https://github.com/mazillka/decky
 | Path | Repository | What it is |
 | --- | --- | --- |
 | [`deckyhub-plugin/`](https://github.com/mazillka/deckyhub-plugin) | `mazillka/deckyhub-plugin` | The Decky Loader plugin: a Python backend (`main.py`) and a React/TypeScript frontend (`src/`), its releases and tests. |
-| [`deckyhub-registry/`](https://github.com/mazillka/deckyhub-registry) | `mazillka/deckyhub-registry` | The plugin list DeckyHub shows on Discover (`registry/apps.json`), the hourly release index and `stats.json`, plugin discovery, and the [catalog website](https://mazillka.github.io/deckyhub-registry/). |
+| [`deckyhub-registry/`](https://github.com/mazillka/deckyhub-registry) | `mazillka/deckyhub-registry` | The plugin list DeckyHub shows on Discover (`registry/apps.json`), the hourly release index and `stats.json`, and plugin discovery. |
 | [`deckyhub-ext/`](https://github.com/mazillka/deckyhub-ext) | `mazillka/deckyhub-ext` | The browser extension that shows registry audit warnings and scan results on GitHub. |
 | [`deckyhub-site/`](https://github.com/mazillka/deckyhub-site) | `mazillka/deckyhub-site` | The website, deckyhub.com. |
 
@@ -76,7 +76,7 @@ git commit -m "chore: bump submodules"
 Issues and pull requests belong in the repository they're about:
 
 - the plugin's behavior, UI, translations or releases → [deckyhub-plugin](https://github.com/mazillka/deckyhub-plugin/issues) ([CONTRIBUTING.md](https://github.com/mazillka/deckyhub-plugin/blob/main/CONTRIBUTING.md));
-- adding, fixing or removing a plugin in the list, or the catalog website → [deckyhub-registry](https://github.com/mazillka/deckyhub-registry/issues);
+- adding, fixing or removing a plugin in the list → [deckyhub-registry](https://github.com/mazillka/deckyhub-registry/issues);
 - the browser extension → [deckyhub-ext](https://github.com/mazillka/deckyhub-ext/issues).
 
 This repository takes only changes to itself: this README, the agent guides, its skills and the submodule pointers.
